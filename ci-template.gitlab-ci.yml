@@ -1,0 +1,9 @@
+docs:
+  stage: test
+  trigger:
+    project: code0-tech/docs
+    strategy: depend
+  variables:
+    C0_TRIGGER_PROJECT: $CI_PROJECT_NAME
+    C0_TRIGGER_SHA: $CI_COMMIT_SHA
+    C0_TRIGGER_REF: $C0_GH_REF

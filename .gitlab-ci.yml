@@ -1,0 +1,26 @@
+.build:
+  image: node:20.9.0
+  script:
+    - npm ci
+    - ./clone_projects.sh
+    - ./build.sh
+
+build:
+  extends:
+    - .build
+  stage: build
+  rules:
+    - if: $CI_COMMIT_BRANCH != "build-branch"
+
+pages:
+  extends:
+    - .build
+  stage: deploy
+  after_script:
+    - rm -rf public
+    - mv dist public
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == "build-branch"
