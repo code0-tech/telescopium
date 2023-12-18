@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -eo pipefail
+
 shopt -s extglob
 shopt -s dotglob
 

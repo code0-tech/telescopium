@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: git clone https://github.com/${{ github.repository }} .
-      - run: git remote add gitlab https://gitlab.com/code0-tech/docs.git
+      - run: git remote add gitlab https://gitlab.com/code0-tech/telescopium.git
       - run: >-
           git
           -c credential.helper='!f() { sleep 1; echo "username=${{ secrets.GL_API_USER }}"; echo "password=${{ secrets.GL_API_TOKEN }}"; }; f'
