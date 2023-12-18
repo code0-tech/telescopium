@@ -14,4 +14,4 @@ jobs:
       - run: >-
           git
           -c credential.helper='!f() { sleep 1; echo "username=${{ secrets.GL_API_USER }}"; echo "password=${{ secrets.GL_API_TOKEN }}"; }; f'
-          push gitlab build-branch
+          push gitlab HEAD:build-branch
