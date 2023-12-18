@@ -1,7 +1,7 @@
 docs:
   stage: test
   trigger:
-    project: code0-tech/docs
+    project: code0-tech/telescopium
     strategy: depend
   variables:
     C0_TRIGGER_PROJECT: $CI_PROJECT_NAME
