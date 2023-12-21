@@ -15,10 +15,12 @@ const transformLocalLinks = () => {
 
 		transform(src, id) {
 			if (id.endsWith('.md') || id.endsWith('.mdx')) {
+				const directory = id.endsWith('index.md') || id.endsWith('index.mdx') ? '' : '../';
+
 				const code = src
-					.replaceAll(/\[([^\]]+?)]\(([^)]+?)\.mdx?\)/g, "[$1](../$2/)")
-					.replaceAll(/href=\\"([^"]+?)\.mdx?\\"/g, "href=\\\"../$1/\\\"")
-					.replaceAll(/href: "([^"]+?)\.mdx?"/g, "href: \"../$1/\"");
+					.replaceAll(/\[([^\]]+?)]\(([^)]+?)\.mdx?\)/g, `[$1](${directory}$2/)`)
+					.replaceAll(/href=\\"([^"]+?)\.mdx?\\"/g, `href=\\"${directory}$1/\\"`)
+					.replaceAll(/href: "([^"]+?)\.mdx?"/g, `href: "${directory}$1/"`);
 
 				return {
 					code: code,
