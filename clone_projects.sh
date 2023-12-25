@@ -21,7 +21,6 @@ for project in $(cat ../documentation_repositories.txt); do
 
     rm -rf -- !(docs)
     rm -rf .git
-    mv docs/starlight.json starlight.json
     cd ..
 done
 cd ..

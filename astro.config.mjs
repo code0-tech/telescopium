@@ -1,12 +1,13 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
+import * as fs from 'fs';
 
 const defaultConfig = {
 	title: 'Code0 Documentation'
 }
 
 const config = process.env.SRC_DIR
-	? (await import(/* @vite-ignore */`${process.env.SRC_DIR}/starlight.json`)).default
+	? (await import(/* @vite-ignore */`${process.env.SRC_DIR}/docs/starlight.json`)).default
 	: defaultConfig;
 
 const transformLocalLinks = () => {

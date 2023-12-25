@@ -1,6 +1,7 @@
 .idea/
 projects/*
 !projects/docs-landing-page/
+tmp/
 
 # build output
 dist/

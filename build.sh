@@ -10,7 +10,7 @@ build_project() {
   echo "Building $project"
   mkdir -p projects/$project/content
   ln $(pwd)/src/env.d.ts projects/$project/env.d.ts
-  ln -s $(pwd)/projects/$project/docs projects/$project/content/docs
+  ln -s $(pwd)/projects/$project/docs/content projects/$project/content/docs
   ln $(pwd)/src/content/config.ts projects/$project/content/config.ts
   if [[ "$project" != "docs-landing-page" ]]; then
     export BASE_URL=/$project/
