@@ -1,6 +1,5 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
-import * as fs from 'fs';
 
 const defaultConfig = {
 	title: 'Code0 Documentation'
