@@ -4,4 +4,15 @@ description: Find out how the documentation page works
 template: splash
 ---
 
+import {CardGrid, Card} from "@astrojs/starlight/components";
+
 Telescopium is the documentation page for Code0.
+
+<CardGrid stagger>
+    <Card title='<a href="structure.md">Directory structure</a>' icon="document">
+        Learn about the directory structure requirements for projects containing documentation.
+    </Card>
+    <Card title='<a href="preview.md">Preview locally</a>' icon="open-book">
+        Learn how to preview documentation locally.
+    </Card>
+</CardGrid>
