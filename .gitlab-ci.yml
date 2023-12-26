@@ -10,12 +10,12 @@ build:
     - .build
   stage: build
   variables:
-    C0_GLOBAL_BASE: https://code0-tech.gitlab.io/-/telescopium/-/jobs/$CI_JOB_ID/artifacts/dist
+    C0_GLOBAL_BASE: /-/telescopium/-/jobs/$CI_JOB_ID/artifacts/dist
   after_script:
     - node scripts/local_link_suffixer.js
     - |
       echo -e "\e[0Ksection_start:`date +%s`:glpa_summary\r\e[0KHeader of the summary"
-      echo "Documentation preview available at ${C0_GLOBAL_BASE}/index.html"
+      echo "Documentation preview available at https://code0-tech.gitlab.io${C0_GLOBAL_BASE}/index.html"
       echo -e "\e[0Ksection_end:`date +%s`:glpa_summary\r\e[0K"
   artifacts:
     paths:
