@@ -13,7 +13,7 @@ build_project() {
   ln -s $(pwd)/projects/$project/docs/content projects/$project/content/docs
   ln $(pwd)/src/content/config.ts projects/$project/content/config.ts
   if [[ "$project" != "docs-landing-page" ]]; then
-    export BASE_URL=/$project/
+    export BASE_URL=$C0_GLOBAL_BASE/$project/
     export OUT_DIR=./dist/$project
   fi
   SRC_DIR=$(pwd)/projects/$project npm run build
@@ -23,6 +23,7 @@ build_project() {
   rm -rf projects/$project/env.d.ts
 }
 
+export BASE_URL=$C0_GLOBAL_BASE/
 build_project "docs-landing-page"
 
 for project in $(ls projects | grep -v docs-landing-page); do
