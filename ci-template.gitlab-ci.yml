@@ -1,7 +1,7 @@
 docs:
   stage: test
   trigger:
-    project: code0-tech/telescopium
+    project: code0-tech/development/telescopium
     branch: build-branch
     strategy: depend
   variables:
@@ -46,7 +46,7 @@ docs:preview:
     - BUILD_JOB_ID=$(echo "$RESPONSE" | jq -r .data.project.pipeline.job.downstreamPipeline.job.id | awk -F '/' '{print $NF}')
     - |
       echo -e "\e[0Ksection_start:`date +%s`:glpa_summary\r\e[0KHeader of the summary"
-      echo "Documentation preview available at https://code0-tech.gitlab.io/-/telescopium/-/jobs/$BUILD_JOB_ID/artifacts/dist/index.html"
+      echo "Documentation preview available at https://code0-tech.gitlab.io/-/development/telescopium/-/jobs/$BUILD_JOB_ID/artifacts/dist/index.html"
       echo -e "\e[0Ksection_end:`date +%s`:glpa_summary\r\e[0K"
   rules:
     - if: $C0_GH_REF != "refs/heads/main"

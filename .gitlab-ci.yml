@@ -10,7 +10,7 @@ build:
     - .build
   stage: build
   variables:
-    C0_GLOBAL_BASE: /-/telescopium/-/jobs/$CI_JOB_ID/artifacts/dist
+    C0_GLOBAL_BASE: /-/development/telescopium/-/jobs/$CI_JOB_ID/artifacts/dist
   after_script:
     - node scripts/local_link_suffixer.js
     - |
