@@ -22,7 +22,7 @@ build:
       - dist
     expire_in: 7 days
   rules:
-    - if: ($CI_COMMIT_BRANCH != "build-branch" || $C0_TRIGGER_REF != "refs/heads/main") && $CI_COMMIT_BRANCH != "glpa/main"
+    - if: ($CI_COMMIT_BRANCH != "build-branch" || $C0_TRIGGER_REF != "refs/heads/main") && $C0_TRIGGER_REF != "refs/heads/main"
 
 pages:
   extends:
@@ -35,4 +35,4 @@ pages:
     paths:
       - public
   rules:
-    - if: ($CI_COMMIT_BRANCH == "build-branch" && $C0_TRIGGER_REF == "refs/heads/main") || $CI_COMMIT_BRANCH == "glpa/main"
+    - if: ($CI_COMMIT_BRANCH == "build-branch" && $C0_TRIGGER_REF == "refs/heads/main") || $C0_TRIGGER_REF == "refs/heads/main"
