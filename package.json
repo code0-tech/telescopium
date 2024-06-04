@@ -11,7 +11,7 @@
     "project:preview": "node scripts/docs_preview.js"
   },
   "dependencies": {
-    "@astrojs/check": "^0.3.3",
+    "@astrojs/check": "^0.7.0",
     "@astrojs/starlight": "^0.15.0",
     "astro": "^4.0.1",
     "sharp": "^0.32.5",
