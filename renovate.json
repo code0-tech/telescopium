@@ -5,5 +5,16 @@
     ":assignee(Taucher2003)",
     ":label(dependencies)",
     ":semanticCommitsDisabled"
+  ],
+  "packageRules": [
+    {
+      "matchPackagePrefixes": [
+        "@astrojs",
+        "astro"
+      ],
+      "extends": [
+        "schedule:monthly"
+      ]
+    }
   ]
 }
