@@ -1,5 +1,5 @@
 .build:
-  image: node:20.14.0
+  image: node:20.15.1
   script:
     - npm ci
     - ./clone_projects.sh
