@@ -1,4 +1,4 @@
 https://github.com/code0-tech/telescopium
 https://github.com/code0-tech/pictor
 https://github.com/code0-tech/sagittarius
-https://github.com/code0-tech/hydra
+https://github.com/code0-tech/aquila
