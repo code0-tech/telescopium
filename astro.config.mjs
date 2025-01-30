@@ -3,7 +3,11 @@ import starlight from '@astrojs/starlight';
 import transformLocalLinks from "./src/plugins/transformLocalLinks.js";
 
 const defaultConfig = {
-	title: 'Code0 Documentation'
+    title: 'Code0 Documentation',
+    pagefind: false,
+    logo: {
+        src: "./src/assets/code0_logo.png",
+    },
 }
 
 const config = process.env.SRC_DIR

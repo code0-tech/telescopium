@@ -1,4 +1,8 @@
 {
   "title": "Code0 Documentation",
-  "pagefind": false
+  "pagefind": false,
+  "logo": {
+    "src": "./src/assets/code0_logo.png",
+    "replacesTitle": true
+  }
 }
