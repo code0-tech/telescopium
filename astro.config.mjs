@@ -1,4 +1,4 @@
-import { defineConfig, passthroughImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import transformLocalLinks from "./src/plugins/transformLocalLinks.js";
 
@@ -24,9 +24,6 @@ export default defineConfig({
 	outDir: process.env.OUT_DIR ?? './dist',
 	srcDir: process.env.SRC_DIR ?? './src',
 	trailingSlash: 'always',
-	image: {
-		service: passthroughImageService()
-	},
 	integrations: [
 		starlight(config),
 	],

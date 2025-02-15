@@ -11,7 +11,10 @@ function getFiles(targetDirectory = '.') {
 function readDirectoryRecursive(directory, currentPath) {
     const dirents = fs.readdirSync(directory, { withFileTypes: true });
 
-    const files = dirents.filter(dirent => dirent.isFile()).map(dirent => `${dirent.name}`);
+    const files = dirents
+        .filter(dirent => dirent.isFile())
+        .map(dirent => `${dirent.name}`)
+        .filter(name => name.endsWith('.html'));
     const directories = dirents.filter(dirent => dirent.isDirectory());
     directories.forEach(dir => {
         const recursedFiles = readDirectoryRecursive(path.join(currentPath, dir.name), `${currentPath}/${dir.name}`).map(filename => `${dir.name}/${filename}`);
