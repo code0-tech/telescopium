@@ -2,13 +2,21 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import transformLocalLinks from "./src/plugins/transformLocalLinks.js";
 
-const defaultConfig = {
-	title: 'Code0 Documentation'
+const globalConfig = {
+    title: 'Code0 Documentation',
+    logo: {
+        src: "./public/code0_logo.png",
+    },
 }
 
-const config = process.env.SRC_DIR
+const projectConfig = process.env.SRC_DIR
 	? (await import(/* @vite-ignore */`${process.env.SRC_DIR}/docs/starlight.json`)).default
-	: defaultConfig;
+	: {};
+
+const config = {
+    ...globalConfig,
+    ...projectConfig,
+};
 
 // https://astro.build/config
 export default defineConfig({
