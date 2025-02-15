@@ -1,12 +1,12 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig, passthroughImageService } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import transformLocalLinks from "./src/plugins/transformLocalLinks.js";
 
 const globalConfig = {
     title: 'Code0 Documentation',
-    // logo: {
-    //     src: "./public/code0_logo.png",
-    // },
+    logo: {
+        src: "./public/code0_logo.png",
+    },
 }
 
 const projectConfig = process.env.SRC_DIR
@@ -24,6 +24,9 @@ export default defineConfig({
 	outDir: process.env.OUT_DIR ?? './dist',
 	srcDir: process.env.SRC_DIR ?? './src',
 	trailingSlash: 'always',
+	image: {
+		service: passthroughImageService()
+	},
 	integrations: [
 		starlight(config),
 	],
