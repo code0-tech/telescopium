@@ -4,9 +4,9 @@ import transformLocalLinks from "./src/plugins/transformLocalLinks.js";
 
 const globalConfig = {
     title: 'Code0 Documentation',
-    logo: {
-        src: "./public/code0_logo.png",
-    },
+    // logo: {
+    //     src: "./public/code0_logo.png",
+    // },
 }
 
 const projectConfig = process.env.SRC_DIR
