@@ -56,7 +56,7 @@ export async function generateMetadata(props: {
     };
 }
 
-export function createRelativeLinkWithFilenameOnly(
+function createRelativeLinkWithFilenameOnly(
     source: LoaderOutput<LoaderConfig>,
     page: Page,
 ): FC<ComponentProps<'a'>> {

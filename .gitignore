@@ -1,6 +1,7 @@
 .idea/
 content/*
 !content/code0
+!content/meta.json
 
 # deps
 /node_modules
