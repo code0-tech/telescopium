@@ -5,8 +5,7 @@ set -eo pipefail
 shopt -s extglob
 shopt -s dotglob
 
-cd projects
-rm -rf -- !(docs-landing-page)
+cd content
 
 for project in $(cat ../documentation_repositories.txt); do
     git clone ${project}.git
@@ -21,6 +20,8 @@ for project in $(cat ../documentation_repositories.txt); do
 
     rm -rf -- !(docs)
     rm -rf .git
+    mv docs/* .
+    rm -rf docs
     cd ..
 done
 cd ..

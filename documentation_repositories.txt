@@ -1,3 +1,2 @@
-https://github.com/code0-tech/telescopium
 https://github.com/code0-tech/sagittarius
 https://github.com/code0-tech/aquila
