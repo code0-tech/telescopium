@@ -1,3 +1,8 @@
+stages:
+  - build
+  - lint
+  - deploy
+
 .build:
   image: node:22.14.0
   script:
@@ -11,6 +16,14 @@ build:
   stage: build
   rules:
     - if: ($CI_COMMIT_BRANCH != "build-branch" || $C0_TRIGGER_REF != "refs/heads/main") && $C0_TRIGGER_REF != "refs/heads/main"
+
+lint-links:
+  stage: lint
+  image: ghcr.io/code0-tech/build-images/telescopium-lint:119.1
+  needs: []
+  script:
+    - ./clone_projects.sh
+    - lychee --offline --no-progress --include-fragments --no-ignore content
 
 pages:
   extends:
