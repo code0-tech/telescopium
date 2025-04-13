@@ -18,7 +18,7 @@ pages:
   stage: deploy
   after_script:
     - rm -rf public
-    - mv dist public
+    - mv out public
   artifacts:
     paths:
       - public
