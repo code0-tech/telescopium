@@ -1,55 +1,71 @@
-import { source } from '@/lib/source';
+import {source} from '@/lib/source';
 import {
-  DocsPage,
-  DocsBody,
-  DocsDescription,
-  DocsTitle,
+    DocsPage,
+    DocsBody,
+    DocsDescription,
+    DocsTitle,
 } from 'fumadocs-ui/page';
-import { notFound } from 'next/navigation';
-import { createRelativeLink } from 'fumadocs-ui/mdx';
-import { getMDXComponents } from '@/mdx-components';
+import {notFound} from 'next/navigation';
+import {createRelativeLink} from 'fumadocs-ui/mdx';
+import {getMDXComponents} from '@/mdx-components';
+import type {LoaderConfig, LoaderOutput, Page} from 'fumadocs-core/source';
+import type {ComponentProps, FC} from 'react';
 
 export default async function Page(props: {
-  params: Promise<{ slug?: string[] }>;
+    params: Promise<{ slug?: string[] }>;
 }) {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
-  if (!page) notFound();
+    const params = await props.params;
+    const page = source.getPage(params.slug);
+    if (!page) notFound();
 
-  const MDXContent = page.data.body;
+    const MDXContent = page.data.body;
 
-  return (
-    <DocsPage toc={page.data.toc} full={page.data.full} tableOfContent={{
-      style: 'clerk',
-      single: false,
-    }}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
-        <MDXContent
-          components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
-            a: createRelativeLink(source, page),
-          })}
-        />
-      </DocsBody>
-    </DocsPage>
-  );
+    return (
+        <DocsPage toc={page.data.toc} full={page.data.full} tableOfContent={{
+            style: 'clerk',
+            single: false,
+        }}>
+            <DocsTitle>{page.data.title}</DocsTitle>
+            <DocsDescription>{page.data.description}</DocsDescription>
+            <DocsBody>
+                <MDXContent
+                    components={getMDXComponents({
+                        // this allows you to link to other pages with relative file paths
+                        a: createRelativeLinkWithFilenameOnly(source, page),
+                    })}
+                />
+            </DocsBody>
+        </DocsPage>
+    );
 }
 
 export async function generateStaticParams() {
-  return source.generateParams();
+    return source.generateParams();
 }
 
 export async function generateMetadata(props: {
-  params: Promise<{ slug?: string[] }>;
+    params: Promise<{ slug?: string[] }>;
 }) {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
-  if (!page) notFound();
+    const params = await props.params;
+    const page = source.getPage(params.slug);
+    if (!page) notFound();
 
-  return {
-    title: page.data.title,
-    description: page.data.description,
-  };
+    return {
+        title: page.data.title,
+        description: page.data.description,
+    };
+}
+
+export function createRelativeLinkWithFilenameOnly(
+    source: LoaderOutput<LoaderConfig>,
+    page: Page,
+): FC<ComponentProps<'a'>> {
+    return async function RelativeLink({href, ...props}) {
+        const relativeLink = createRelativeLink(source, page)
+        // support filename-only links
+        if (href && (!href.startsWith('http') && href.endsWith('.md'))) {
+            return relativeLink({href: `./${href}`, ...props});
+        }
+        return relativeLink({href, ...props});
+    };
 }
