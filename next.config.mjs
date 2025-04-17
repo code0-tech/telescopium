@@ -7,6 +7,7 @@ const config = {
     reactStrictMode: true,
     output: 'export',
     images: { unoptimized: true },
+    trailingSlash: true,
 };
 
 export default withMDX(config);
