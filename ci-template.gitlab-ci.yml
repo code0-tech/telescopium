@@ -9,7 +9,7 @@ docs:
     C0_TRIGGER_SHA: $CI_COMMIT_SHA
     C0_TRIGGER_REF: $C0_GH_REF
 
-docs:preview:
+.docs:preview:
   stage: test
   image: registry.gitlab.com/gitlab-ci-utils/curl-jq:latest
   needs:
