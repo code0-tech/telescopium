@@ -1,21 +1,15 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
-    ":assignee(Taucher2003)",
-    ":label(dependencies)",
-    ":semanticCommitsDisabled"
+    "github>code0-tech/internal-tooling//renovate/global.json5",
+    ":assignee(Taucher2003)"
   ],
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchPackagePrefixes": [
-        "@astrojs",
-        "astro"
-      ],
-      "extends": [
-        "schedule:monthly"
-      ]
+      "matchDatasources": ["npm"],
+      "matchPackageNames": ["/^fumadocs/"],
+      "groupName": "fumadocs"
     }
   ]
 }
