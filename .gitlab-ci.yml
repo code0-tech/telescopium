@@ -19,7 +19,7 @@ build:
 
 lint-links:
   stage: lint
-  image: ghcr.io/code0-tech/build-images/telescopium-lint:161.1
+  image: ghcr.io/code0-tech/build-images/telescopium-lint:200.1
   needs: []
   script:
     - ./clone_projects.sh
