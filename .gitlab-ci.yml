@@ -4,7 +4,7 @@ stages:
   - deploy
 
 .build:
-  image: node:22.16.0
+  image: node:22.21.1
   script:
     - npm ci
     - ./clone_projects.sh
