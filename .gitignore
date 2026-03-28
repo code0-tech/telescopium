@@ -1,6 +1,7 @@
 .idea/
 content/*
 !content/code0
+!content/general
 !content/meta.json
 
 # deps

@@ -1,13 +1,7 @@
 {
   "pages": [
-    "introduction",
-    "tutorials",
-    "changelog",
-    "troubleshooting",
-    "---Getting Started---",
-    "---Triggers---",
-    "---Node Types---",
-    "---Features---",
+    "...general",
+    "...sculptor",
     "---Actions---",
     "centaurus",
     "---Components---",
