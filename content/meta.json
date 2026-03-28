@@ -1,9 +1,12 @@
 {
   "pages": [
-    "code0",
+    "...general",
+    "...sculptor",
+    "---Actions---",
+    "centaurus",
+    "---Components---",
     "sagittarius",
     "aquila",
-    "hercules",
-    "centaurus"
+    "hercules"
   ]
 }
