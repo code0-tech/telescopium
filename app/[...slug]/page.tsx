@@ -29,7 +29,10 @@ export default async function Page(props: {
             <DocsDescription>{page.data.description}</DocsDescription>
             <DocsBody>
                 <MDXContent
-                    components={getMDXComponents()}
+                    components={getMDXComponents({
+                        // this allows you to link to other pages with relative file paths
+                        a: createRelativeLinkWithFilenameOnly(source, page),
+                    })}
                 />
             </DocsBody>
         </DocsPage>
@@ -53,16 +56,28 @@ export async function generateMetadata(props: {
     };
 }
 
+type InferSource = typeof source;
+type InferPage = NonNullable<ReturnType<typeof source.getPage>>;
+
 function createRelativeLinkWithFilenameOnly(
-    source: LoaderOutput<LoaderConfig>,
-    page: Page,
+    sourceInst: InferSource,
+    page: InferPage,
 ): FC<ComponentProps<'a'>> {
-    return async function RelativeLink({href, ...props}) {
-        const relativeLink = createRelativeLink(source, page)
-        // support filename-only links
-        if (href && (!href.startsWith('http') && href.endsWith('.md'))) {
-            return relativeLink({href: `./${href}`, ...props});
+    const RelativeLinkBase = createRelativeLink(sourceInst, page);
+
+    return function RelativeLink({ href, ...props }) {
+        if (!href || href.startsWith('http')) {
+            return <RelativeLinkBase {...props} href={href} />;
         }
-        return relativeLink({href, ...props});
+
+        let finalHref = href;
+
+        const [path, hash] = href.split('#');
+
+        if (path.endsWith('.md')) {
+            finalHref = `./${path}${hash ? `#${hash.toLowerCase()}` : ''}`;
+        }
+
+        return <RelativeLinkBase {...props} href={finalHref} />;
     };
 }
