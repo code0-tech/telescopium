@@ -11,8 +11,8 @@ export const baseOptions: BaseLayoutProps = {
     nav: {
         title: (
             <>
-                <img src={"/code0_logo.png"} alt={"Code0 Logo"} width={24}/>
-                Code0
+                <img src={"/Logo.svg"} alt={"Code0 Logo"} width={16}/>
+                CodeZero
             </>
         ),
     },

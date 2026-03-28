@@ -1,9 +1,18 @@
 {
   "pages": [
-    "code0",
+    "introduction",
+    "tutorials",
+    "changelog",
+    "troubleshooting",
+    "---Getting Started---",
+    "---Triggers---",
+    "---Node Types---",
+    "---Features---",
+    "---Actions---",
+    "centaurus",
+    "---Components---",
     "sagittarius",
     "aquila",
-    "hercules",
-    "centaurus"
+    "hercules"
   ]
 }
