@@ -29,10 +29,7 @@ export default async function Page(props: {
             <DocsDescription>{page.data.description}</DocsDescription>
             <DocsBody>
                 <MDXContent
-                    components={getMDXComponents({
-                        // this allows you to link to other pages with relative file paths
-                        a: createRelativeLinkWithFilenameOnly(source, page),
-                    })}
+                    components={getMDXComponents()}
                 />
             </DocsBody>
         </DocsPage>
