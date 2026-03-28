@@ -1,15 +1,11 @@
 import {source} from '@/lib/source';
-import {
-    DocsPage,
-    DocsBody,
-    DocsDescription,
-    DocsTitle,
-} from 'fumadocs-ui/page';
+import {DocsBody, DocsDescription, DocsPage, DocsTitle,} from 'fumadocs-ui/page';
 import {notFound} from 'next/navigation';
 import {createRelativeLink} from 'fumadocs-ui/mdx';
 import {getMDXComponents} from '@/mdx-components';
-import type {LoaderConfig, LoaderOutput, Page} from 'fumadocs-core/source';
+import { AutoTypeTable, type AutoTypeTableProps } from 'fumadocs-typescript/ui';
 import type {ComponentProps, FC} from 'react';
+import {createGenerator} from "fumadocs-typescript";
 
 export default async function Page(props: {
     params: Promise<{ slug?: string[] }>;
@@ -30,6 +26,9 @@ export default async function Page(props: {
             <DocsBody>
                 <MDXContent
                     components={getMDXComponents({
+                        AutoTypeTable: (props: Partial<AutoTypeTableProps>) => (
+                            <AutoTypeTable {...props} generator={createGenerator()}/>
+                        ),
                         // this allows you to link to other pages with relative file paths
                         a: createRelativeLinkWithFilenameOnly(source, page),
                     })}
@@ -65,9 +64,9 @@ function createRelativeLinkWithFilenameOnly(
 ): FC<ComponentProps<'a'>> {
     const RelativeLinkBase = createRelativeLink(sourceInst, page);
 
-    return function RelativeLink({ href, ...props }) {
+    return function RelativeLink({href, ...props}) {
         if (!href || href.startsWith('http')) {
-            return <RelativeLinkBase {...props} href={href} />;
+            return <RelativeLinkBase {...props} href={href}/>;
         }
 
         let finalHref = href;
@@ -78,6 +77,6 @@ function createRelativeLinkWithFilenameOnly(
             finalHref = `./${path}${hash ? `#${hash.toLowerCase()}` : ''}`;
         }
 
-        return <RelativeLinkBase {...props} href={finalHref} />;
+        return <RelativeLinkBase {...props} href={finalHref}/>;
     };
 }
