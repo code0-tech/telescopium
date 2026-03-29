@@ -11,7 +11,7 @@ export const baseOptions: BaseLayoutProps = {
     nav: {
         title: (
             <>
-                <img src={"/Logo.svg"} alt={"Code0 Logo"} width={16}/>
+                <img src={`${process.env.BASE_PATH || ""}/Logo.svg`} alt={"Code0 Logo"} width={16}/>
                 CodeZero
             </>
         ),
