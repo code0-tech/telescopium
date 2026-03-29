@@ -14,6 +14,18 @@ build:
   extends:
     - .build
   stage: build
+  variables:
+    NEXT_PUBLIC_ARTIFACT_VIEWER: "true"
+    BASE_PATH: /-/development/telescopium/-/jobs/$CI_JOB_ID/artifacts/out
+  after_script:
+    - |
+      echo -e "\e[0Ksection_start:`date +%s`:glpa_summary\r\e[0KHeader of the summary"
+      echo "Documentation preview available at https://code0-tech.gitlab.io${BASE_PATH}/index.html"
+      echo -e "\e[0Ksection_end:`date +%s`:glpa_summary\r\e[0K"
+  artifacts:
+    expire_in: 7 days
+    paths:
+      - out
   rules:
     - if: ($CI_COMMIT_BRANCH != "build-branch" || $C0_TRIGGER_REF != "refs/heads/main") && $C0_TRIGGER_REF != "refs/heads/main"
 
