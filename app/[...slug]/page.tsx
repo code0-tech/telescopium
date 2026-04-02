@@ -6,6 +6,7 @@ import {getMDXComponents} from '@/mdx-components';
 import { AutoTypeTable, type AutoTypeTableProps } from 'fumadocs-typescript/ui';
 import type {ComponentProps, FC} from 'react';
 import {createGenerator} from "fumadocs-typescript";
+import FunctionCard from "@/src/components/FunctionCard";
 
 export default async function Page(props: {
     params: Promise<{ slug?: string[] }>;
@@ -26,6 +27,9 @@ export default async function Page(props: {
             <DocsBody>
                 <MDXContent
                     components={getMDXComponents({
+                        FunctionCard: (props) => (
+                          <FunctionCard {...props}/>
+                        ),
                         AutoTypeTable: (props: Partial<AutoTypeTableProps>) => (
                             <AutoTypeTable {...props} generator={createGenerator()}/>
                         ),

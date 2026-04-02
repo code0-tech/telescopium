@@ -9,11 +9,13 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "@tabler/icons-react": "^3.41.0",
+    "@code0-tech/sagittarius-graphql-types": "^0.0.0-experimental-2414125487-fbc8a5ec8a2dd07cc76957d4315281c246e98d57",
+    "@tabler/icons-react": "^3.40.0",
     "fumadocs-core": "^16.7.7",
     "fumadocs-mdx": "^14.2.11",
-    "fumadocs-ui": "^16.7.7",
     "fumadocs-typescript": "^5.2.0",
+    "fumadocs-ui": "^16.7.7",
+    "js-md5": "^0.8.3",
     "next": "16.1.7",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
