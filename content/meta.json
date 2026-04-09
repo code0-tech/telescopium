@@ -2,13 +2,15 @@
   "pages": [
     "...general",
     "...sculptor",
-    "---Deployment---",
-    "...reticulum",
     "---Actions---",
-    "centaurus",
-    "---Components---",
-    "sagittarius",
-    "aquila",
-    "hercules"
+    "[Action SDK](/hercules/)",
+    "[Developed Actions](/centaurus/)",
+    "---IDE---",
+    "[IDE Frontend](/sculptor/)",
+    "[IDE Backend](/sagittarius/)",
+    "---Runtime---",
+    "[Runtime Gateway](/aquila/)",
+    "[Runtime Adapters](/draco/)",
+    "[Runtime Execution](/taurus/)"
   ]
 }
