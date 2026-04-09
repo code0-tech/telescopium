@@ -1,14 +1,20 @@
 {
   "pages": [
+    "---Socials---",
+    "[IconBrandGithub][Github](https://github.com/code0-tech)",
+    "[IconWorldWww][Website](https://codezero.build/)",
+    "---Getting started---",
     "...general",
     "...sculptor",
-    "---Deployment---",
-    "...reticulum",
     "---Actions---",
-    "centaurus",
-    "---Components---",
-    "sagittarius",
-    "aquila",
-    "hercules"
+    "[Action SDK](/hercules/)",
+    "[Developed Actions](/centaurus/)",
+    "---IDE---",
+    "[IDE Frontend](/sculptor/)",
+    "[IDE Backend](/sagittarius/)",
+    "---Runtime---",
+    "[Runtime Gateway](/aquila/)",
+    "[Runtime Adapters](/draco/)",
+    "[Runtime Execution](/taurus/)"
   ]
 }
