@@ -1,4 +1,11 @@
 {
   "title": "General",
-  "root": true
+  "root": true,
+  "pages": [
+    "introduction",
+    "install",
+    "changelog",
+    "tutorials",
+    "troubleshooting"
+  ]
 }
