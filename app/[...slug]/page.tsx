@@ -7,6 +7,7 @@ import { AutoTypeTable, type AutoTypeTableProps } from 'fumadocs-typescript/ui';
 import type {ComponentProps, FC} from 'react';
 import {createGenerator} from "fumadocs-typescript";
 import FunctionCard from "@/src/components/FunctionCard";
+import {Mermaid} from "@/src/components/Mermaid";
 
 export default async function Page(props: {
     params: Promise<{ slug?: string[] }>;
@@ -35,6 +36,7 @@ export default async function Page(props: {
                         ),
                         // this allows you to link to other pages with relative file paths
                         a: createRelativeLinkWithFilenameOnly(source, page),
+                        Mermaid,
                     })}
                 />
             </DocsBody>
