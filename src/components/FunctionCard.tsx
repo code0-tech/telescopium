@@ -61,8 +61,6 @@ const FunctionCard: React.FC<FunctionCardProps> = (props) => {
         return <span>{part}</span>
     })
 
-    console.log(definition)
-
     return <FumaCard title={""} key={"function-card-" + definition?.identifier}>
         <div style={{gap: "1rem", display: "flex", justifyContent: "space-between", alignItems: "center"}}>
             <FumaCard title={""} style={{textWrap: "nowrap", background: "#070514", borderRadius: "1rem", padding: "0.35rem 0.7rem", border: "1px solid #bfbfbf1a"}}>
