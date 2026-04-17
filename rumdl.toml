@@ -59,7 +59,7 @@ inline = true
 full = false
 collapsed = false
 shortcut = false
-url-inline = false # prefer autolink
+url-inline = true
 
 [MD055] # table-pipe-style
 style = "leading-and-trailing"
