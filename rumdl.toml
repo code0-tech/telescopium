@@ -1,0 +1,75 @@
+[global]
+include = [
+    "content/**/*.md",
+    "content/**/*.mdx",
+]
+
+# content repositories are gitignored because they are cloned in the pipeline
+respect-gitignore = false
+
+extend-disable = [
+    # we have lychee for link checking
+    "MD051",
+    "MD052",
+]
+
+[per-file-flavor]
+"**/*.md" = "standard"
+"**/*.mdx" = "mdx"
+
+[MD003] # heading-style
+style = "atx"
+
+[MD004] # ul-style
+style = "dash"
+
+[MD013] # line-length
+line-length = 120
+
+[MD029] # ol-prefix
+style = "one-or-ordered"
+
+[MD032] # blanks-around-lists
+allow-lazy-continuation = false
+
+[MD040] # fenced-code-language
+style = "consistent"
+unknown-language-action = "error"
+
+[MD044] # proper-names
+names = [
+    # none yet
+]
+
+[MD046] # code-block-style
+style = "fenced"
+
+[MD048] # code-fence-style
+style = "backtick"
+
+[MD049] # emphasis-style
+style = "asterisk"
+
+[MD050] # strong-style
+style = "asterisk"
+
+[MD054] # link-image-style
+autolink = true
+inline = true
+full = false
+collapsed = false
+shortcut = false
+url-inline = false # prefer autolink
+
+[MD055] # table-pipe-style
+style = "leading-and-trailing"
+
+[MD057] # existing-relative-links
+absolute-links = "warn"
+
+[MD070] # nested-code-fence
+enabled = true
+
+[MD072] # frontmatter-key-sort
+enabled = true
+key-order = ["title", "description"]

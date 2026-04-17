@@ -31,11 +31,19 @@ build:
 
 lint-links:
   stage: lint
-  image: ghcr.io/code0-tech/build-images/telescopium-lint:271.1
+  image: ghcr.io/code0-tech/build-images/telescopium-lint:291.1
   needs: []
   script:
     - ./clone_projects.sh
     - lychee --offline --no-progress --include-fragments --no-ignore content
+
+lint-markdown:
+  stage: lint
+  image: ghcr.io/code0-tech/build-images/telescopium-lint:291.1
+  needs: []
+  script:
+    - ./clone_projects.sh
+    - rumdl check --fail-on any
 
 pages:
   extends:
