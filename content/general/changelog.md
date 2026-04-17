@@ -3,6 +3,8 @@ title: Changelog
 icon: IconRestore
 ---
 
+<!-- rumdl-configure-file { "MD013": { "headings": false } } -->
+
 All notable changes to the CodeZero software will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
@@ -26,7 +28,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Switched to TypeScript for RuntimeFunction, Function, Flow and DataType definitions. This generelly improves type safety and increased reliability of suggestion and validation.
+- Switched to TypeScript for RuntimeFunction, Function, Flow and DataType definitions.
+  This generelly improves type safety and increased reliability of suggestion and validation.
 - Runtime status is now more accurate and has more details and also exposes features installed on the runtime.
 - Moving dashboard components from UI library named pictor to frontend application named sculptor.
 - New DataTypeType input based on custom type language.
