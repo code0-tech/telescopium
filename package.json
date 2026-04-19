@@ -9,7 +9,7 @@
     "postinstall": "fumadocs-mdx"
   },
   "dependencies": {
-    "@code0-tech/sagittarius-graphql-types": "^0.0.0-experimental-2414125487-fbc8a5ec8a2dd07cc76957d4315281c246e98d57",
+    "@code0-tech/sagittarius-graphql-types": "^0.0.0-f91466f0f343596ad170e7e5c5316a70b072594d",
     "@tabler/icons-react": "^3.40.0",
     "fumadocs-core": "^16.7.7",
     "fumadocs-mdx": "^14.2.11",
