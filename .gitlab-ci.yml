@@ -31,7 +31,7 @@ build:
 
 lint-links:
   stage: lint
-  image: ghcr.io/code0-tech/build-images/telescopium-lint:315.1
+  image: ghcr.io/code0-tech/build-images/telescopium-lint:323.1
   needs: []
   script:
     - ./clone_projects.sh
@@ -39,7 +39,7 @@ lint-links:
 
 lint-markdown:
   stage: lint
-  image: ghcr.io/code0-tech/build-images/telescopium-lint:315.1
+  image: ghcr.io/code0-tech/build-images/telescopium-lint:323.1
   needs: []
   script:
     - ./clone_projects.sh
