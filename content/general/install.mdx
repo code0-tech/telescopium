@@ -65,18 +65,23 @@ SSL_KEY_FILE= # must be located in ./certs, defaults to "<hostname>.key"
 
 INITIAL_ROOT_PASSWORD=root
 INITIAL_ROOT_MAIL=root@code0.tech
+INITIAL_RUNTIME_TOKEN= # can be used to create a global runtime with given token
 
 # Runtime config
 AQUILA_SAGITTARIUS_URL=http://nginx:80
 AQUILA_SAGITTARIUS_TOKEN=
 DRACO_REST_PORT=8084
 
+TAURUS_AQUILA_TOKEN=taurus
+DRACO_REST_AQUILA_TOKEN=draco-rest
+DRACO_CRON_AQUILA_TOKEN=draco-cron
+
 # Active services
 COMPOSE_PROFILES=ide,runtime
 
 # Image config
 IMAGE_REGISTRY=registry.gitlab.com/code0-tech/packages
-IMAGE_TAG= # version
+IMAGE_TAG=
 IMAGE_EDITION= # ce or ee
 
 # Internal config options
@@ -96,15 +101,20 @@ POSTGRES_PASSWORD=sagittarius
 
 ### Key parameters
 
+- `IMAGE_TAG`: Set this to the specific version of CodeZero you want to deploy.
 - `INITIAL_ROOT_MAIL`: The email address for the primary administrator.
 - `INITIAL_ROOT_PASSWORD`: The secure password for your first login.
 - `IMAGE_EDITION`: Set this to ce for the Community Edition or ee for the Enterprise Edition. This
   determines which Docker images will be pulled.
 
+### Setup initial runtime
+- `INITIAL_RUNTIME_TOKEN`: If you want to create a global runtime with a predefined token, set it here. This allows you to connect a runtime immediately after deployment without needing to generate a token from the dashboard.
+- `AQUILA_SAGITTARIUS_TOKEN`: Set the same token here if you want the global runtime to connect right away. If you leave it blank, you can set it up runtime later, follow [Setup additional runtimes](#setup-additional-runtimes-optional) instructions.
+
 </Step>
 <Step>
 
-## Initial deployment
+## Deployment
 
 Start the CodeZero containers in detached mode:
 
@@ -116,6 +126,9 @@ Once the containers are running, you can access the CodeZero Dashboard via your 
 at [http://localhost/](http://localhost/)).
 
 </Step>
+</Steps>
+## Setup additional runtimes (optional)
+<Steps>
 <Step>
 
 ## Connecting the runtime
@@ -158,7 +171,7 @@ Update your .env file with the copied token at `AQUILA_SAGITTARIUS_TOKEN` and sa
 For the changes to take effect and for the runtime to authenticate correctly, restart the containers:
 
 ```bash
-docker compose restart
+docker compose up -d
 ```
 
 </Step>
