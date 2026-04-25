@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[0.0.0-canary-2479774825-5f30e1cf348478a20d0d708f31e863f5e521b368]](https://github.com/code0-tech/codezero/releases/tag/0.0.0-canary-2479774825-5f30e1cf348478a20d0d708f31e863f5e521b368) - 2026-04-25
+
 ### Added
 
 - Foundational validation and suggestion support for flows, nodes, and validation rules: [#3](https://github.com/code0-tech/triangulum/issues/3), [#22](https://github.com/code0-tech/triangulum/issues/22), [#32](https://github.com/code0-tech/triangulum/issues/32)
