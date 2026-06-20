@@ -79,7 +79,7 @@ function createRelativeLinkWithFilenameOnly(
 
         const [path, hash] = href.split('#');
 
-        if (path.endsWith('.md')) {
+        if (path.endsWith('.md') || path.endsWith('.mdx')) {
             finalHref = `./${path}${hash ? `#${hash.toLowerCase()}` : ''}`;
         }
 
