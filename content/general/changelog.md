@@ -10,6 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [[0.0.0-canary-2651542634-50d3520bc2ff01a6c1d022ed69a48417bbd4259d]](https://github.com/code0-tech/codezero/releases/tag/0.0.0-canary-2651542634-50d3520bc2ff01a6c1d022ed69a48417bbd4259d) - 2026-07-04
+
 ### Added
 
 - AI subscription endpoint accepting flow ID, project ID, prompt and model identifier; streams the generated flow back via Velorum: [#1012](https://github.com/code0-tech/sagittarius/issues/1012)
