@@ -14,10 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- AI subscription endpoint accepting flow ID, project ID, prompt and model identifier; streams the generated flow back via Velorum: [#1012](https://github.com/code0-tech/sagittarius/issues/1012)
+- AI subscription endpoint streaming a generated flow back via Velorum from a flow ID, prompt and model: [#1012](https://github.com/code0-tech/sagittarius/issues/1012)
 - Query to fetch all available AI models via Velorum gRPC: [#1013](https://github.com/code0-tech/sagittarius/issues/1013)
 - Typed response for AI Subscription Flow: [#1049](https://github.com/code0-tech/sagittarius/issues/1049)
-- New module structure — runtime flow types, flow types, runtime functions, functions and data types are now retrieved and linked per module: [#934](https://github.com/code0-tech/sagittarius/issues/934)
+- New module structure — flow types, functions and data types are now retrieved and linked per module: [#934](https://github.com/code0-tech/sagittarius/issues/934)
 - Mutatable module configurations linked to NamespaceProjectRuntimeAssignment, exposed via GraphQL: [#983](https://github.com/code0-tech/sagittarius/issues/983)
 - Module update endpoint support in Aquila: [#311](https://github.com/code0-tech/aquila/issues/311)
 - Module properties included in Draco runtime: [#212](https://github.com/code0-tech/draco/issues/212)
@@ -29,7 +29,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Module grouping in next node dialog: [#202](https://github.com/code0-tech/sculptor/issues/202)
 - Auth support for the REST adapter: [#246](https://github.com/code0-tech/draco/issues/246)
 - External host and URL env variables as endpoint definition: [#243](https://github.com/code0-tech/draco/issues/243)
-- GraphQL subscription to execute a test execution, streaming until an execution result is received; no persistence required: [#932](https://github.com/code0-tech/sagittarius/issues/932)
+- GraphQL subscription to run a test execution, streaming until a result is received, with no persistence: [#932](https://github.com/code0-tech/sagittarius/issues/932)
 - Test run implementation — select runtime, pass flow body, return results via GraphQL subscription: [#422](https://github.com/code0-tech/sagittarius/issues/422)
 - Persistence of test runs in database including query and delete mutation: [#423](https://github.com/code0-tech/sagittarius/issues/423)
 - Receiving, storing and querying execution results: [#933](https://github.com/code0-tech/sagittarius/issues/933)
@@ -63,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - New suggestion concept — tab system for filtering by type and definition source with search: [#184](https://github.com/code0-tech/sculptor/issues/184)
 - New suggestions for SubFlows in sculptor: [#127](https://github.com/code0-tech/sculptor/issues/127)
 - License management page in sculptor: [#228](https://github.com/code0-tech/sculptor/issues/228)
-- Refactored NamespaceLicense to support instance-level licensing for self-managed EE with optional namespace association, new GraphQL mutations and queries: [#754](https://github.com/code0-tech/sagittarius/issues/754)
+- Refactored NamespaceLicense for instance-level self-managed EE licensing, with new GraphQL mutations and queries: [#754](https://github.com/code0-tech/sagittarius/issues/754)
 - Definitions received over module layer in sculptor: [#194](https://github.com/code0-tech/sculptor/issues/194)
 
 ### Changed
@@ -81,7 +81,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - EditorInput reworked in Pictor: [#687](https://github.com/code0-tech/pictor/issues/687)
 - Runtime assignment is now set as primary directly in sculptor: [#190](https://github.com/code0-tech/sculptor/issues/190)
 - Definition folder names updated in Reticulum (cron → draco_cron, rest → draco_rest, standard → taurus): [#653](https://github.com/code0-tech/reticulum/issues/653)
-- Reticulum env updated — root password, provider, ide_velorum default profile and INITIAL_RUNTIME_TOKEN: [#801](https://github.com/code0-tech/reticulum/issues/801), [#802](https://github.com/code0-tech/reticulum/issues/802), [#803](https://github.com/code0-tech/reticulum/issues/803), [#808](https://github.com/code0-tech/reticulum/issues/808)
+- Reticulum env updated — root password, provider, default profile and runtime token: [#801](https://github.com/code0-tech/reticulum/issues/801), [#802](https://github.com/code0-tech/reticulum/issues/802), [#803](https://github.com/code0-tech/reticulum/issues/803), [#808](https://github.com/code0-tech/reticulum/issues/808)
 - New db fields for parameters and runtime parameters based on new Tucana version: [#890](https://github.com/code0-tech/sagittarius/issues/890)
 - Telescopium set up for Taurus: [#122](https://github.com/code0-tech/taurus/issues/122)
 - Aquila Status Service temporarily deactivated to eliminate UNIMPLEMENTED spam logs in Sagittarius: [#359](https://github.com/code0-tech/aquila/issues/359)
