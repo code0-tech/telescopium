@@ -1,0 +1,4 @@
+# Custom JSX links (e.g. <Card href="./page" />) point to extensionless
+# routes, matching how Fumadocs serves pages. Retry missing local files with
+# these extensions so the checker resolves them to their source files.
+fallback_extensions = ["mdx", "md"]
