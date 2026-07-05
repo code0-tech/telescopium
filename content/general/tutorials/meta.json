@@ -1,0 +1,10 @@
+{
+  "title": "Tutorials",
+  "root": true,
+  "pages": [
+    "quick_login_ide",
+    "quick_first_personal_project",
+    "quick_setting_up_a_project",
+    "quick_creating_a_flow"
+  ]
+}
