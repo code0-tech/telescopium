@@ -1,5 +1,5 @@
 ---
-title: Quick - IDE Login
+title: Quick - How to login
 icon: IconBook2
 ---
 
@@ -8,7 +8,8 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Cards, Card } from 'fumadocs-ui/components/card';
 
-Welcome to the **Quick Tutorials**! In this guide, we’ll walk through all steps from your current installtion to your first flow.
+Welcome to the **Quick Tutorials**! In this guide,
+we’ll walk through all steps from your current installtion to your first flow.
 
 <Callout type="info">
   **Prerequisite:** Ensure you have completed the steps from the [Installation Process](/general/install) before proceeding.
@@ -39,32 +40,37 @@ INITIAL_RUNTIME_TOKEN=runtime
 ```
 
 <Tabs items={['Local Access', 'Remote Access']}>
-  <Tab value="Local Access">
-    ### Local Machine
-    If you are running the ide in docker on your current computer, use the loopback address.
-    
-    ```text
-    http://localhost
-    ```
-    
-    <Callout type="info">
-      This only works if the browser and the docker container are on the same device.
-    </Callout>
-  </Tab>
-  
-  <Tab value="Remote Access">
-    ### Remote Server
-    If you are accessing a server on your local network, use its IP address.
-    
-    ```text
-    http://192.168.2.105
-    ```
-    
-    **Instructions:**
-    1. Find your server IP (PS: On linux headless type `ip addr` copy that address).
-    2. Replace `192.168.2.105` with your actual IP.
-    3. Ensure port `80` is open in your firewall settings.
-  </Tab>
+<Tab value="Local Access">
+
+## Local Machine
+
+If you are running the ide in docker on your current computer, use the loopback address.
+
+```text
+http://localhost
+```
+
+<Callout type="info">
+This only works if the browser and the docker container are on the same device.
+</Callout>
+</Tab>
+
+<Tab value="Remote Access">
+
+## Remote Server
+
+If you are accessing a server on your local network, use its IP address.
+
+```text
+http://192.168.2.105
+```
+
+**Instructions:**
+
+1. Find your server IP (PS: On linux headless type `ip addr` copy that address).
+2. Replace `192.168.2.105` with your actual IP.
+3. Ensure port `80` is open in your firewall settings.
+</Tab>
 </Tabs>
 
 Once you have opened the correct URL in your browser, the login screen will appear. Enter the credentials you defined in your .env file.
@@ -89,6 +95,14 @@ INITIAL_RUNTIME_TOKEN=runtime
 
 Enter the `INITIAL_ROOT_MAIL` and `INITIAL_ROOT_PASSWORD` into their corresponding login fields, then click **Login**.
 
-![CodeZero](../../../public/tutorials/quick-first-login/cZ_01_loginPageEnterNameAndPassword.png)
+![CodeZero](../../../public/tutorials/quick-how-to-login/cZ_01_loginPageEnterNameAndPassword.png)
 </Step>
 </Steps>
+
+---
+
+### What are my next steps?
+
+Now that you have successfully logged in as the root administrator,
+your next step is to create a home for your automation experiments.
+Head over to our Creating a Personal Project tutorial to get your first sandbox workspace ready!

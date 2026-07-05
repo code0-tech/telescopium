@@ -1,5 +1,5 @@
 ---
-title: Quick - Setting up a Project
+title: Quick - Setting up your project
 icon: IconBook2
 ---
 
@@ -8,52 +8,75 @@ import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
 import { Cards, Card } from 'fumadocs-ui/components/card';
 
+Before building your automation workflows, let's get your project environment configured properly.
+Setting up your runtime environments and personalizing your project path takes just a few quick steps.
+
+---
+
 <Steps>
 <Step>
-Go to your created project you want to setup for Flow creation
+
+## Select your project
+
+From your main dashboard, navigate to and select the specific project you want to configure.
 
 ![CodeZero](../../../public/tutorials/quick-setting-up-a-project/cZ_01_navigateToYourProject.png)
 
 </Step>
 <Step>
-Then go to the Runtime tab
+
+## Connect a runtime environment
+
+Head over to the sidebar menu and select the **Runtime** tab.
 
 ![CodeZero](../../../public/tutorials/quick-setting-up-a-project/cZ_02_navigateToRuntimes.png)
 
-Then add your Runtime
+Click the add button to attach your preferred execution environment to this project. This gives your flows the computing engine they need to run successfully.
 
 ![CodeZero](../../../public/tutorials/quick-setting-up-a-project/cZ_03_addRuntime.png)
 
 </Step>
 <Step>
 
-Navigate to your Project settings
+## Customize your project settings
+
+Next, open up the **Project Settings** panel from the lower section of the sidebar navigation.
 
 ![CodeZero](../../../public/tutorials/quick-setting-up-a-project/cZ_04_navigateToSettings.png)
 
-Edit the slug and to your prefered route. You can also change the description and the name if you like.
+Update the **slug** text field to define your preferred URL routing prefix. While you are here, feel free to update the project name and description to keep your workspace well-organized.
 
 ![CodeZero](../../../public/tutorials/quick-setting-up-a-project/cZ_05_editSettingsAsYouWant.png)
 
 <Callout type="info">
-This slug will be used later as the path to your flow:
+  💡 **Understanding the routing structure:** This project slug directly determines the base web route for every automation you build inside this project. Your final live endpoint URLs will follow this structural format:
 
-`http://localhost:<DRACO_REST_PORT>/<your-new-slug>/<flow-path>`
+  `http://localhost:<DRACO_REST_PORT>/<your-new-slug>/<flow-path>`
 </Callout>
 
-Then save your settings.
+Once you are satisfied with your route and configuration tweaks, click the **Save Settings** button to apply the changes.
 
 ![CodeZero](../../../public/tutorials/quick-setting-up-a-project/cZ_06_saveYourSettings.png)
 
 </Step>
 <Step>
-Navigate to Flows
+
+## Enter the flow workspace
+
+With your base settings locked in, click on the **Flows** tab to return to your project's main automation interface.
 
 ![CodeZero](../../../public/tutorials/quick-setting-up-a-project/cZ_07_navigateToProjectHome.png)
 
-Here you can start creating flows
+Welcome to your empty canvas! You are now fully configured and ready to start linking nodes together to build your first live automation flow. 🎉
 
 ![CodeZero](../../../public/tutorials/quick-setting-up-a-project/cZ_08_flows.png)
 
 </Step>
 </Steps>
+
+---
+
+### Ready for action?
+
+Now that your runtime is wired up and your base slug is configured, you have the perfect foundation built.
+Head over to our **Creating your first flow** tutorial to build out your first functional REST endpoint.
