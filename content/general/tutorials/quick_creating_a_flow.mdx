@@ -1,0 +1,192 @@
+---
+title: Creating your first flow
+icon: IconRoute
+---
+
+import { Callout } from 'fumadocs-ui/components/callout';
+import { Step, Steps } from 'fumadocs-ui/components/steps';
+
+Flows are the automations you build in CodeZero. Each flow starts with a trigger and then runs the nodes connected to it.
+In this guide we'll build a small REST endpoint: a flow that answers a `GET` request to `/ping` with the text `pong`.
+
+<Callout type="info">
+  **Prerequisite:** You have a project to build the flow in. If you don't have one yet, follow the [Creating a project](./quick_creating_a_project) tutorial first.
+</Callout>
+
+---
+
+<Steps>
+<Step>
+
+## Open your project
+
+On the home dashboard, click on the workspace that contains your project.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_01_openWorkspace.png)
+
+Then click on the project in the **Projects** list.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_02_openProject.png)
+
+</Step>
+<Step>
+
+## Create a new flow
+
+In the **Explorer** on the left, click **Create workflow**.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_03_clickCreateWorkflow.png)
+
+Choose the trigger that starts your flow. For a REST endpoint, select **Webhook**.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_04_selectWebhookTrigger.png)
+
+Give your flow a name. Only alphanumeric names are allowed, for example `ping`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_05_enterFlowName.png)
+
+Click **Yes, create!** to create the flow.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_06_clickCreate.png)
+
+</Step>
+<Step>
+
+## Open your new flow
+
+A **Created flow** message confirms the new flow, and it now appears in the **Explorer**. Click on it to open it.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_07_openYourNewFlow.png)
+
+</Step>
+<Step>
+
+## Open the edit panel
+
+The flow opens in the flow editor and only contains the Webhook trigger so far. Click the pencil button in the top right to open the edit panel.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_08_openEditPanel.png)
+
+Then click on the **Webhook** node to show its settings in the panel.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_09_selectWebhookNode.png)
+
+</Step>
+<Step>
+
+## Configure the webhook
+
+In the **URL** field, enter the path your flow should listen on, for example `/ping`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_10_enterUrl.png)
+
+Open the **Method** dropdown
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_11_openMethodDropdown.png)
+
+and select the HTTP method the flow should react to, here **GET**.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_12_selectGet.png)
+
+</Step>
+<Step>
+
+## Add a Respond node
+
+With the Webhook node still selected, click **Add node** in the toolbar at the bottom.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_13_clickAddNode.png)
+
+Search for `respond`
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_14_searchRespond.png)
+
+and select **Respond**. This node sends the HTTP response back to whoever called your endpoint.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_15_selectRespond.png)
+
+</Step>
+<Step>
+
+## Configure the response
+
+The Respond node is now connected to the Webhook node, and its parameters are shown in the panel.
+Fields that still need a value are marked with an error until you fill them out.
+
+Enter `200` as the **HTTP Status Code**.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_16_enterStatusCode.png)
+
+For the **Content Type**, click the suggestions button next to the field
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_17_openContentTypeSuggestions.png)
+
+and select `text/plain`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_18_selectTextPlain.png)
+
+Finally, enter the text to send back as the **Response Payload**, here `pong`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_19_enterResponsePayload.png)
+
+<Callout type="info">
+  For `application/json` the payload must be an object. For all other content types, a plain string is expected.
+</Callout>
+
+</Step>
+<Step>
+
+## Save your flow
+
+Click **Unsaved. Save now** at the top of the editor to save your flow.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_20_saveFlow.png)
+
+<Callout type="info">
+  Changes are also saved automatically within one minute.
+</Callout>
+
+</Step>
+<Step>
+
+## Set the project slug
+
+The project slug is part of the URL of your endpoint, so give it a readable value.
+Click on the project name at the bottom left of the sidebar to open the project menu.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_21_openProjectMenu.png)
+
+Click **Settings**.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_22_clickSettings.png)
+
+Enter a **Slug** for your project, for example `my-test-project`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_23_enterSlug.png)
+
+Click **Save changes** to apply it.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_24_saveSlug.png)
+
+</Step>
+<Step>
+
+## Call your endpoint
+
+Your endpoint is now live. Its URL is built from three parts:
+
+```text
+<REST server>/<project slug>/<URL of the flow>
+```
+
+- **REST server**: the address of the CodeZero REST server, for example `https://rest-cloud.codezero.build`
+- **Project slug**: the slug from the project settings, here `my-test-project`
+- **URL of the flow**: the path you entered in the Webhook node, here `/ping`
+
+Together, that gives `https://rest-cloud.codezero.build/my-test-project/ping`.
+Send a `GET` request to it, for example with Postman, curl or simply your browser. The flow answers with status `200 OK` and the text `pong`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_25_testWithPostman.png)
+
+</Step>
+</Steps>
