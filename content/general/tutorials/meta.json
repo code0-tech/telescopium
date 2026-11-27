@@ -7,7 +7,12 @@
     "quick_finding_account_settings",
     "---Workspaces---",
     "quick_creating_a_workspace",
+    "quick_adding_a_member",
     "quick_creating_a_role",
+    "quick_changing_role_permissions",
+    "quick_assigning_a_role",
+    "quick_removing_a_role",
+    "quick_removing_a_member",
     "quick_checking_your_usage",
     "---Projects---",
     "quick_creating_a_project",
@@ -15,6 +20,9 @@
     "quick_changing_project_settings",
     "quick_deleting_a_project",
     "---Flows---",
-    "quick_creating_a_flow"
+    "quick_creating_a_flow",
+    "quick_checking_execution_results",
+    "quick_fixing_invalid_flows",
+    "quick_deleting_a_flow"
   ]
 }
