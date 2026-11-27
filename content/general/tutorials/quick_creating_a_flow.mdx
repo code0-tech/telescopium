@@ -1,119 +1,192 @@
 ---
-title: Quick - Creating your first flow
-icon: IconBook2
+title: Creating your first flow
+icon: IconRoute
 ---
 
-import { Tab, Tabs } from 'fumadocs-ui/components/tabs';
 import { Callout } from 'fumadocs-ui/components/callout';
 import { Step, Steps } from 'fumadocs-ui/components/steps';
-import { Cards, Card } from 'fumadocs-ui/components/card';
 
-We will build a simple flow that listens for a `GET` request and immediately answers back with a classic `pong`.
+Flows are the automations you build in CodeZero. Each flow starts with a trigger and then runs the nodes connected to it.
+In this guide we'll build a small REST endpoint: a flow that answers a `GET` request to `/ping` with the text `pong`.
+
+<Callout type="info">
+  **Prerequisite:** You have a project to build the flow in. If you don't have one yet, follow the [Creating a project](./quick_creating_a_project.mdx) tutorial first.
+</Callout>
 
 ---
 
 <Steps>
 <Step>
 
-## Kickstart a new flow
+## Open your project
 
-Let's begin by creating a fresh canvas. Click the create button to get started.
+On the home dashboard, click on the workspace that contains your project.
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_01_clickOnCreateFlow.png)
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_01_openWorkspace.png)
 
-Set the trigger type to **REST Endpoint**, give your flow a memorable name, and hit create to open up your new workspace.
+Then click on the project in the **Projects** list.
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_02_selectTriggerAndCreate.png)
-
-</Step>
-<Step>
-
-## Access the node settings
-
-Locate and open your newly created flow from the explorer list.
-
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_03_selectTheNewFlow.png)
-
-Click on the **Starting Node** to highlight it. Then, take a look at the right-hand side of your screen and open up the **Node Settings** panel. This is where the magic configuration happens.
-
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_04_selectStartNodeAndOpenNodeSettings.png)
-
-Form here we can start setting up our starting node.
-
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_05_sidePannelOpen.png)
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_02_openProject.png)
 
 </Step>
 <Step>
 
-### Configure your endpoint & logic
+## Create a new flow
 
-First, let's define the data type. Click on the variable **(x)** icon and select `text/plain` from the list.
+In the **Explorer** on the left, click **Create workflow**.
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_06_setContentTypeType.png)
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_03_clickCreateWorkflow.png)
 
-Next, let's give your flow an address. Type a clean path like `/ping` into the URL endpoint field.
+Choose the trigger that starts your flow. For a REST endpoint, select **Webhook**.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_04_selectWebhookTrigger.png)
+
+Give your flow a name. Only alphanumeric names are allowed, for example `ping`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_05_enterFlowName.png)
+
+Click **Yes, create!** to create the flow.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_06_clickCreate.png)
+
+</Step>
+<Step>
+
+## Open your new flow
+
+A **Created flow** message confirms the new flow, and it now appears in the **Explorer**. Click on it to open it.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_07_openYourNewFlow.png)
+
+</Step>
+<Step>
+
+## Open the edit panel
+
+The flow opens in the flow editor and only contains the Webhook trigger so far. Click the pencil button in the top right to open the edit panel.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_08_openEditPanel.png)
+
+Then click on the **Webhook** node to show its settings in the panel.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_09_selectWebhookNode.png)
+
+</Step>
+<Step>
+
+## Configure the webhook
+
+In the **URL** field, enter the path your flow should listen on, for example `/ping`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_10_enterUrl.png)
+
+Open the **Method** dropdown
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_11_openMethodDropdown.png)
+
+and select the HTTP method the flow should react to, here **GET**.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_12_selectGet.png)
+
+</Step>
+<Step>
+
+## Add a Respond node
+
+With the Webhook node still selected, click **Add node** in the toolbar at the bottom.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_13_clickAddNode.png)
+
+Search for `respond`
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_14_searchRespond.png)
+
+and select **Respond**. This node sends the HTTP response back to whoever called your endpoint.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_15_selectRespond.png)
+
+</Step>
+<Step>
+
+## Configure the response
+
+The Respond node is now connected to the Webhook node, and its parameters are shown in the panel.
+Fields that still need a value are marked with an error until you fill them out.
+
+Enter `200` as the **HTTP Status Code**.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_16_enterStatusCode.png)
+
+For the **Content Type**, click the suggestions button next to the field
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_17_openContentTypeSuggestions.png)
+
+and select `text/plain`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_18_selectTextPlain.png)
+
+Finally, enter the text to send back as the **Response Payload**, here `pong`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_19_enterResponsePayload.png)
 
 <Callout type="info">
-  💡 **What is a URL endpoint?** This acts as the unique web path for your flow. When combined with your specific project slug, it forms the full web address you will use to trigger this logic.
+  For `application/json` the payload must be an object. For all other content types, a plain string is expected.
 </Callout>
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_07_setUrlEndpoint.png)
+</Step>
+<Step>
 
-Choose the `GET` method from the dropdown menu. We are using `GET` for this project so you can easily test and preview the results right inside your favorite web browser.
+## Save your flow
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_08_setHttpRequestMethod.png)
+Click **Unsaved. Save now** at the top of the editor to save your flow.
 
-Set the incoming input schema to `Data Value` to keep the format simple and clean.
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_20_saveFlow.png)
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_09_setInputSchemaToDataValue.png)
+<Callout type="info">
+  Changes are also saved automatically within one minute.
+</Callout>
 
 </Step>
 <Step>
 
-#### Add a responde node
+## Set the project slug
 
-Now, let's add some action! Open up the **Node Menu** to browse available blocks.
+The project slug is part of the URL of your endpoint, so give it a readable value.
+Click on the project name at the bottom left of the sidebar to open the project menu.
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_10_openNodeMenu.png)
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_21_openProjectMenu.png)
 
-Type `Respond` into the search bar and select the corresponding node to add it to your workflow canvas.
+Click **Settings**.
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_11_searchAndSelectRespondNode.png)
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_22_clickSettings.png)
 
-Click on the newly placed **Respond** node to configure.
+Enter a **Slug** for your project, for example `my-test-project`.
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_12_selectYourRespondNode.png)
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_23_enterSlug.png)
 
-Let's tell the client everything went smoothly. Set the **Status Code** to `200` (the standard HTTP code for "OK").
+Click **Save changes** to apply it.
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_13_setStatusCode200.png)
-
-Just like before, use the **(x)** variable icon to set the response content type to `text/plain`.
-
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_14_setRespondContentType.png)
-
-Type the word `pong` into the content field. This is the exact text payload that will be sent back to the user.
-
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_15_enterContentToReturn.png)
-
-Don't lose your progress! Click the **Save** button in the toolbar.
-
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_16_clickOnSave.png)
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_24_saveSlug.png)
 
 </Step>
 <Step>
 
-#### Try out your flow
+## Call your endpoint
 
-Time to test it out! Click on the **Play** button and copy the resulting HTTP URL to your clipboard.
+Your endpoint is now live. Its URL is built from three parts:
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_17_copyHttpUrl.png)
+```text
+<REST server>/<project slug>/<URL of the flow>
+```
 
-Finally, paste the copied link into a new browser tab.
-If you are developing locally, feel free to adjust the IP address or host if needed.
-Hit enter, and watch your flow instantly reply with `pong`!
+- **REST server**: the address of the CodeZero REST server, for example `https://rest-cloud.codezero.build`
+- **Project slug**: the slug from the project settings, here `my-test-project`
+- **URL of the flow**: the path you entered in the Webhook node, here `/ping`
 
-![CodeZero](../../../public/tutorials/quick-first-flow/cZ_18_enterUrlAndSeeRespond.png)
+Together, that gives `https://rest-cloud.codezero.build/my-test-project/ping`.
+Send a `GET` request to it, for example with Postman, curl or simply your browser. The flow answers with status `200 OK` and the text `pong`.
+
+![CodeZero](../../../public/tutorials/quick-creating-a-flow/cZ_25_testWithPostman.png)
 
 </Step>
 </Steps>
@@ -122,6 +195,5 @@ Hit enter, and watch your flow instantly reply with `pong`!
 
 ### What are my next steps?
 
-Congratulations on deploying your very first endpoint!
-Now that you know how to receive a request and send a basic response,
-you can try passing dynamic data variables or adding conditional logic nodes to make your flow even smarter.
+Your flow is running.
+Continue with the [Checking execution results](./quick_checking_execution_results.mdx) tutorial to see what happened while it ran.

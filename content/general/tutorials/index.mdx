@@ -1,13 +1,159 @@
 ---
 title: Tutorials
+description: Step-by-step guides that walk you through CodeZero, from your first login to a ready-to-use project.
 icon: IconBook2
 ---
 
-import {Card, Cards} from "fumadocs-ui/components/card";
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { Callout } from 'fumadocs-ui/components/callout';
+import {
+    IconAlertTriangle,
+    IconBuildingCommunity,
+    IconFolderPlus,
+    IconGauge,
+    IconLogin,
+    IconRoute,
+    IconSettings,
+    IconShieldCog,
+    IconShieldPlus,
+    IconShieldX,
+    IconTimeline,
+    IconTrash,
+    IconTrashX,
+    IconUserCircle,
+    IconUserCog,
+    IconUserMinus,
+    IconUserPlus,
+    IconUserShield,
+} from '@tabler/icons-react';
+
+{/* Keep `href` as the first prop of each Card: the link checker (lychee) stops reading a Card at the */}
+{/* nested <Icon /> tag, so links placed after `icon` would never be checked. */}
+
+## Getting started
 
 <Cards>
-    <Card title="Quick - How to login" href="./quick_how-to-login"/>
-    <Card title="Quick - How to create first personal project" href="./quick_first_personal_project"/>
-    <Card title="Quick - How to set up project" href="./quick_setting_up_a_project"/>
-    <Card title="Quick - How to create first flow" href="./quick_creating_a_flow"/>
+    <Card
+        href="./quick_how-to-login"
+        icon={<IconLogin />}
+        title="Logging in"
+        description="Open the IDE and sign in with the credentials from your installation."
+    />
+    <Card
+        href="./quick_finding_account_settings"
+        icon={<IconUserCog />}
+        title="Finding your account settings"
+        description="Open your account settings to change your profile, password, 2-step verification and sessions."
+    />
+</Cards>
+
+## Workspaces
+
+<Cards>
+    <Card
+        href="./quick_creating_a_workspace"
+        icon={<IconBuildingCommunity />}
+        title="Creating a workspace"
+        description="Create a workspace for your team or company to organize projects and members."
+    />
+    <Card
+        href="./quick_adding_a_member"
+        icon={<IconUserPlus />}
+        title="Adding a member"
+        description="Add existing users to a workspace as members."
+    />
+    <Card
+        href="./quick_creating_a_role"
+        icon={<IconShieldPlus />}
+        title="Creating a role"
+        description="Bundle permissions into a role from a template, ready to assign to workspace members."
+    />
+    <Card
+        href="./quick_changing_role_permissions"
+        icon={<IconShieldCog />}
+        title="Changing role permissions"
+        description="Enable or take away permissions of an existing role."
+    />
+    <Card
+        href="./quick_assigning_a_role"
+        icon={<IconUserShield />}
+        title="Assigning a role"
+        description="Give a workspace member a role."
+    />
+    <Card
+        href="./quick_removing_a_role"
+        icon={<IconShieldX />}
+        title="Removing a role from a member"
+        description="Take a role away from a workspace member."
+    />
+    <Card
+        href="./quick_removing_a_member"
+        icon={<IconUserMinus />}
+        title="Removing a member"
+        description="Remove a member from a workspace."
+    />
+    <Card
+        href="./quick_checking_your_usage"
+        icon={<IconGauge />}
+        title="Checking your usage"
+        description="See how many workflow executions and AI tokens your workspace has left."
+    />
+</Cards>
+
+## Projects
+
+<Cards>
+    <Card
+        href="./quick_creating_a_project"
+        icon={<IconFolderPlus />}
+        title="Creating a project"
+        description="Add a project to a workspace to group your flows, modules and runtimes."
+    />
+    <Card
+        href="./quick_first_personal_project"
+        icon={<IconUserCircle />}
+        title="Creating a personal project"
+        description="Set up a private sandbox project in your personal workspace."
+    />
+    <Card
+        href="./quick_changing_project_settings"
+        icon={<IconSettings />}
+        title="Changing project settings"
+        description="Change the name, description and slug of a project."
+    />
+    <Card
+        href="./quick_deleting_a_project"
+        icon={<IconTrash />}
+        title="Deleting a project"
+        description="Permanently remove a project and all of its flows from a workspace."
+    />
+</Cards>
+
+## Flows
+
+<Cards>
+    <Card
+        href="./quick_creating_a_flow"
+        icon={<IconRoute />}
+        title="Creating your first flow"
+        description="Build a REST endpoint that answers a GET request with pong and call it."
+    />
+    <Card
+        href="./quick_checking_execution_results"
+        icon={<IconTimeline />}
+        title="Checking execution results"
+        description="See which nodes of a flow ran, how long they took, and what went in and came out."
+    />
+    <Card
+        href="./quick_fixing_invalid_flows"
+        icon={<IconAlertTriangle />}
+        title="Fixing invalid flows"
+        description="Find flows that need attention from the dashboard and fix the setting that breaks them."
+    />
+    <Card
+        href="./quick_deleting_a_flow"
+        icon={<IconTrashX />}
+        title="Deleting a flow"
+        description="Permanently remove a flow from a project."
+    />
 </Cards>

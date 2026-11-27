@@ -2,9 +2,27 @@
   "title": "Tutorials",
   "root": true,
   "pages": [
+    "---Getting started---",
     "quick_how-to-login",
+    "quick_finding_account_settings",
+    "---Workspaces---",
+    "quick_creating_a_workspace",
+    "quick_adding_a_member",
+    "quick_creating_a_role",
+    "quick_changing_role_permissions",
+    "quick_assigning_a_role",
+    "quick_removing_a_role",
+    "quick_removing_a_member",
+    "quick_checking_your_usage",
+    "---Projects---",
+    "quick_creating_a_project",
     "quick_first_personal_project",
-    "quick_setting_up_a_project",
-    "quick_creating_a_flow"
+    "quick_changing_project_settings",
+    "quick_deleting_a_project",
+    "---Flows---",
+    "quick_creating_a_flow",
+    "quick_checking_execution_results",
+    "quick_fixing_invalid_flows",
+    "quick_deleting_a_flow"
   ]
 }
